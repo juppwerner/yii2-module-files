@@ -70,6 +70,7 @@ class SimpleImage
 
     function resizeToHeight($height)
     {
+        $height = round($height, 0);
         $ratio = $height / $this->getHeight();
         $width = $this->getWidth() * $ratio;
         $this->resize($width, $height);
@@ -96,6 +97,8 @@ class SimpleImage
 
     function resize($width, $height)
     {
+        $width = round($width, 0);
+        $height = round($height, 0);
         $new_image = imagecreatetruecolor($width, $height);
         imagealphablending($new_image, false);
         imagesavealpha($new_image, true);
@@ -107,6 +110,7 @@ class SimpleImage
 
     function resizeToWidth($width)
     {
+        $width = round($width, 0);
         $ratio = $width / $this->getWidth();
         $height = $this->getheight() * $ratio;
         $this->resize($width, $height);
